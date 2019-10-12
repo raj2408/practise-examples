@@ -1,0 +1,17 @@
+{% include "header.html" %}
+    {% include "base.html" %}
+    <meta charset="UTF-8">
+
+
+<div class = "container">
+<form method="POST" class="InstituteFormM">
+    <table align="center">
+    {% csrf_token %}
+        <thead><h2 align="center">Add Institute - Modelform</h2></thead>
+    <tr>{{form}}</tr>
+
+</table><br>
+    <center> <button type="button" class="btn btn-dark">Submit</button> </center>
+</form>
+</div>
+</html>

@@ -1,0 +1,18 @@
+{% include "header.html" %}
+    {% include "base.html" %}
+    <meta charset="UTF-8">
+
+
+<div class="container" class = "jumboton" bgcolor = "pink">
+<form method="POST" class="TeacherFormM">
+       {% csrf_token %}
+    <table bgcolor="#e6d6dd" class="table table-striped" border=".5px" >
+        <thead><h2>Teacher Registration - Modelform</h2></thead>
+  <tr>  {{formM}} </tr>
+<tr><td></td><td><input type="button"  value="submit"></td></tr>
+    </table>
+
+
+</form>
+</div>
+</html>

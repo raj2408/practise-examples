@@ -1,0 +1,28 @@
+    {% include "header.html" %}
+    {% include "base.html" %}
+      <div class ="container" align ="center">
+<h3 align="center">
+    Institute Details</h3>
+    <a href="/instituteformC/">
+        <input type="button" class="btn btn-success" value="Add Institute - Custom Form"  />
+    </a>
+    <a href="/instituteformM/">
+        <input type="button" class="btn btn-info" value="Add Institute - Model Form" />
+    </a>
+     <a href="/i_downloadxlsx/">
+        <input type="button" class="btn btn-light" value="Download xlsx" />
+     </a>
+
+<table border="1" class="table table-striped w-auto" align="center">
+  <thead bgcolor="pink"><td>name</td><td>Email</td><td>Website</td><td>Edit</td><td>Delete</td></thead>
+    {% for object in objects %}
+       <tr><td>{{object.name}}</td><td>  {{object.email}} </td><td>{{object.website}}</td>
+     <td><button type="button" class="btn btn-light"><a href="/institute_edit/{{object.id}}">Edit</a> </button></td>
+<td><button type="button" class="btn btn-danger"><a href="/institutedelete/{{object.id}}">Delete</a> </button></td>
+
+       </tr>
+    {% endfor %}
+
+</table>
+
+      </div>

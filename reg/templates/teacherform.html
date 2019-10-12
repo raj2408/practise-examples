@@ -1,0 +1,17 @@
+{% include "header.html" %}
+    {% include "base.html" %}
+      <br>
+    <br>
+<div class ="container" align="center">
+        <form method="post" id = "teacherform">
+<table bgcolor="CCFFB3" class="table-hover" align="center">
+    <thead><h2>Teacher Registration form</h2></thead>
+                                    {% csrf_token %}
+                                 {% for field in form %}
+       <tr><td> {{ field.label }}:{% if field.is_mandatory %} * {% endif %} </td><td>{{ field }} {{ field.errors }}</td></tr>
+                                     {% endfor %}
+        </table>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+

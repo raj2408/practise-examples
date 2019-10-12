@@ -1,0 +1,36 @@
+
+    {% include "header.html" %}
+{% include "base.html" %}
+
+    <!-- delete from here-->
+  
+    <!-- delete till here-->
+
+    <div class="container">
+  <div class="jumbotron" id = "div1">
+    <h1>ERP Portal</h1>
+    <p>ERP is business process management software that allows an organization to use a system of integrated applications to manage the business and automate many back office functions related to technology, services and human resources.</p>
+  </div>
+  <p>Beta Version </p>
+</div>
+
+<br>
+    <div class="container">
+ <form action="." method="post">
+     {% csrf_token %}
+  What is the length for the rectangle ? : <br>
+  <input type="text" name="length" {% if length_rec %} value="{{length_rec}}" {% endif %}><br>
+  What is the breadth for the rectangle ? : <br>
+  <input type="text" name="breadth" {% if breadth_rec %} value="{{breadth_rec}}"{% endif %}>
+  <input type="submit" value="Draw">
+ </form>
+</div>
+    <!--
+    {% for item in breadth_array %}
+         {% for item in length_array %}
+           <b>*</b>
+         {% endfor %}
+{% endfor %}
+-->
+
+    {% include "footer.html" %}

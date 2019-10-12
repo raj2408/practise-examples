@@ -1,0 +1,15 @@
+{% include "header.html" %}
+    {% include "base.html" %}
+
+
+
+<div  class="container">
+    <h2 align="center">Add Institute</h2>
+<form method='POST' action ="." >
+   <table align="center">
+    {% csrf_token %}
+    <tr>{{form}}</tr>
+    </table><br>
+   <center> <button type='submit'>Save</button> </center>
+</form>
+</div>

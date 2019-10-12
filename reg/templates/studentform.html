@@ -1,0 +1,23 @@
+   {% include "header.html" %}
+    {% include "base.html" %}
+
+
+
+<div class="container" class="jumbotron" class="table-hover" class="table-condensed">
+
+    <form method="POST" class="post-form">
+        <table bgcolor="#e6d6dd" class="table table-striped" border=".5px" >
+            {% csrf_token %}
+            <thead align="center"><h2>Student Registration form</h2></thead>
+            {% for field in form %}
+       <tr><td align="center"> {{ field.label }}:{% if field.is_mandatory %} * {% endif %} </td>
+           <td align="center">{{ field }} {{ field.errors }}</td>
+       </tr>                                     {% endfor %}
+            <tr><td></td></td><td align="center">
+                <button type="button" class="btn btn-info">Save</button>
+               </td></tr>
+        </table>
+        </form>
+</div>
+
+    </html>  

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<script>
+function init() {
+  document.getElementById("myform").reset();
+}
+
+window.onload = init;
+</script>
+
+    {% include "header.html" %}
+    {% include "base.html" %}
+    {% include "bmi.js" %}
+
+<body>
+<h1 align="center">BMI calculator</h1>
+<div class="container"><img src="{% static '/reg/img/click.png' %}" id="imgs" onclick="changeimg()" height="200" width="200" align="right">
+<!--
+<img src="{% static '/reg/img/click.png' %}" height="200" width="200" onclick="this.src='{% static '/reg/img/7i.gif' %}' ">
+     <img src="{% static '/reg/img/7i.gif' %}" height="200" width="200" onclick="this.src='{% static '/reg/img/click.png' %}' ">
+-->
+
+
+</div>
+<div class="container" class="jumbotron" align="center">
+<form id="myform" method="POST">
+     {% csrf_token %}
+
+<table border="1" >
+    <tr>
+    <td>Height : </td><td><input type="text" id="h_input" name="height"  {% if height %} value="{{height}}" {% endif %}></td>
+    <td>HeightUnit :</td><td>
+        <select name="unit_height" id="h_unit" {% if unit_height %} value="{{unit_height}}" {% endif %} onchange="convertHeight()">
+
+                        <option value="inch2cm" id="inch2cm">cm</option>
+                        <option value="cm2inch" id="cm2inch">inches</option>
+        </select>
+    </td>
+    </tr>
+
+    <tr>
+    <td>Weight : </td><td><input type="text"  id="w_input" name="weight" {% if weight %} value="{{weight}}" {% endif %}></td>
+    <td>WeightUnit : </td><td><select name="unit_weight" id ="w_unit" onchange="convertWeight()"{% if unit_weight %} value="{{unit_weight}}" {% endif %}>
+
+                         <option value="pound2kg" id = "pound2kg">kg</option>
+                         <option value="kg2pound" id = "kg2pound">pounds</option>
+                  </select></td>
+    </tr>
+
+    <tr><td colspan="4" align="center"> The BMI value is {% if bmi_val %} value="{{bmi_val}}" {% endif %}</td></tr>
+    <tr><td colspan="2" align="center"><input type="submit" value="Submit"></td>
+        <td colspan="2" align="center"><input type="button" value="Reset" onclick=clearform()></td>
+    </tr>
+</table></form>
+    </div>
+
+
+
+
+</body>
+</html>
